@@ -49,16 +49,16 @@ export class App extends Component {
   };
 
   componentDidMount() {
+    // localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
     // setTimeout(() => {
-      this.setState({ contacts: parsedContacts });
+      this.setState({contacts: parsedContacts });
     // }, 1000);
   }  
 
   componentDidUpdate(contacts, prevState) {
     if (this.state.contacts !== prevState.contacts) {
-      console.log('new field conacts')
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
   }
