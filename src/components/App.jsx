@@ -51,9 +51,9 @@ export class App extends Component {
   componentDidMount() {
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
-    setTimeout(() => {
+    // setTimeout(() => {
       this.setState({ contacts: parsedContacts });
-    }, 1000);
+    // }, 1000);
   }  
 
   componentDidUpdate(contacts, prevState) {
