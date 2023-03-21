@@ -1,7 +1,7 @@
 import  React, {Component} from 'react';
 import { GlobalStyle } from './GlobalStyle';
 import 'modern-normalize';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { Layout, Sectionletter, Headerletter } from './Layout.js';
 import Form from './Form.js';
 import { Contacts } from './Contacts.js';
