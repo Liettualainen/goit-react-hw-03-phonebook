@@ -52,9 +52,10 @@ export class App extends Component {
     // localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
-    // setTimeout(() => {
-      this.setState({contacts: parsedContacts });
-    // }, 1000);
+    if (parsedContacts) {
+       this.setState({contacts: parsedContacts });
+    }
+     
   }  
 
   componentDidUpdate(contacts, prevState) {
