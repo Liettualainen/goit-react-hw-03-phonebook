@@ -19,6 +19,22 @@ export class App extends Component {
     filter: '',
   }
 
+  componentDidMount() {
+    // localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+    if (parsedContacts) {
+       this.setState({contacts: parsedContacts });
+    }
+     
+  }  
+
+  componentDidUpdate(contacts, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+  
   formSubmitHandler = (data) => {
  const theSameName = this.state.contacts.map(contacts => contacts.name).includes(data.name);
 
@@ -48,21 +64,6 @@ export class App extends Component {
     }));
   };
 
-  componentDidMount() {
-    // localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-    if (parsedContacts) {
-       this.setState({contacts: parsedContacts });
-    }
-     
-  }  
-
-  componentDidUpdate(contacts, prevState) {
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-  }
   
   render() {
     const { formSubmitHandler, changeFilter, deleteContact, filterContacts} = this;
